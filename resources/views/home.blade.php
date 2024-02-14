@@ -294,54 +294,23 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3">
-                    <div class="menu-entry">
-                        <a href="#" class="img"
-                            style="background-image: url({{ asset('assets/images/menu-1.jpg') }});"></a>
-                        <div class="text text-center pt-4">
-                            <h3><a href="#">Coffee Capuccino</a></h3>
-                            <p>A small river named Duden flows by their place and supplies</p>
-                            <p class="price"><span>$5.90</span></p>
-                            <p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
+                @foreach ($products as $product)
+                    <div class="col-md-3 mx-2">
+                        <div class="menu-entry card bg-transparent" style="border:solid 2px #A9865F">
+                            <a href="#" class="img"
+                                style="width:100%;background-image: url({{ asset('assets/images/' . $product->image) }});"></a>
+                            <div class="text text-center pt-4">
+                                <h3><a href="{{ route('product.view', $product->id) }}">{{ $product->name }}</a></h3>
+                                <p>{{ substr($product->description, 0, 50) }}</p>
+                                <p class="price"><span>{{ $product->price }}</span></p>
+                                <p><a href="{{ route('product.view', $product->id) }}"
+                                        class="btn btn-primary btn-outline-primary">View</a></p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="menu-entry">
-                        <a href="#" class="img"
-                            style="background-image: url({{ asset('assets/images/menu-2.jpg') }});"></a>
-                        <div class="text text-center pt-4">
-                            <h3><a href="#">Coffee Capuccino</a></h3>
-                            <p>A small river named Duden flows by their place and supplies</p>
-                            <p class="price"><span>$5.90</span></p>
-                            <p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="menu-entry">
-                        <a href="#" class="img"
-                            style="background-image: url({{ asset('assets/images/menu-3.jpg') }});"></a>
-                        <div class="text text-center pt-4">
-                            <h3><a href="#">Coffee Capuccino</a></h3>
-                            <p>A small river named Duden flows by their place and supplies</p>
-                            <p class="price"><span>$5.90</span></p>
-                            <p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="menu-entry">
-                        <a href="#" class="img"
-                            style="background-image: url({{ asset('assets/images/menu-4.jpg') }});"></a>
-                        <div class="text text-center pt-4">
-                            <h3><a href="#">Coffee Capuccino</a></h3>
-                            <p>A small river named Duden flows by their place and supplies</p>
-                            <p class="price"><span>$5.90</span></p>
-                            <p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
+
             </div>
         </div>
     </section>
