@@ -7,7 +7,7 @@
                 <div class="col-md-12 ftco-animate">
                     <form method="POST" action="{{ route('login') }}" class="billing-form ftco-bg-dark p-3 p-md-5">
                         @csrf
-                        <h3 class="mb-4 billing-heading">Login</h3>
+                        <h3 class="mb-4 text-light billing-heading">Enter Login Details</h3>
                         <div class="row align-items-end">
                             <div class="col-md-12">
                                 <div class="form-group">
@@ -29,8 +29,8 @@
                                 <label for="password"
                                     class="text-white col-form-label text-md-end">{{ __('Password') }}</label>
                                 <input id="password" type="password"
-                                    class="form-control @error('password') is-invalid @enderror" name="password" required
-                                    autocomplete="current-password">
+                                    class="form-control @error('password') is-invalid @enderror" placeholder="password"
+                                    name="password" required autocomplete="current-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
